@@ -22,6 +22,9 @@ body {
   font-family: "Barlow Semi Condensed";
   color: #fff;
   font-style: normal;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
 }
 
 main {
@@ -151,8 +154,47 @@ main {
 .attribution {
   font-size: 11px;
   text-align: center;
+  color: var(--color-dark-grey);
 }
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+/* Breakpoints */
+
+@media screen and (min-width: 1024px) {
+  main {
+    max-width: 69.375rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .card section h1,
+  .card section p {
+    max-width: none;
+  }
+
+  .card__purple {
+    grid-column: 1 / span 2;
+  }
+
+  .card__dark_grey {
+    grid-column: 3 / span 1;
+  }
+
+  /* Target the first .card__white */
+  .card.card__white:nth-of-type(4) {
+    grid-row: 2 / span 1;
+  }
+
+  /* Target the second .card__white */
+  .card.card__white:nth-of-type(5) {
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 2;
+  }
+
+  .card__black {
+    grid-column: 2 / span 2;
+  }
 }
